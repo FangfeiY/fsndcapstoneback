@@ -306,7 +306,7 @@ def create_app(db_uri):
 
     return app
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # if(len(sys.argv) < 2):
     #     print("Please provide database name as 1st argument to this script.")
     # else:
@@ -314,5 +314,5 @@ if __name__ == '__main__':
     #     app = create_app(db_name)
     #     app.run()
 
-    app = create_app(PROD_DB_URI)
-    app.run()
+app = create_app(DATABASE_URL)
+app.run()
