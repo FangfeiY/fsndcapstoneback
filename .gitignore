@@ -1,0 +1,4 @@
+__pycache__
+env
+env_config.bat
+auth0_token_request.txt
