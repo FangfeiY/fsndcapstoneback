@@ -4,9 +4,9 @@ import json
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, request, jsonify, abort
 
-from app import create_app
-from models import reset_db, Menu, FoodItem
-from env_vars import POSTGRES_USER, POSTGRES_PASS
+from src.app import create_app
+from src.models import reset_db, Menu, FoodItem
+from src.env_vars import POSTGRES_USER, POSTGRES_PASS
 
 class MeteorRestaurantTestCase(unittest.TestCase):
     """The unit tests for Meteor Restsurant e-menu and ordering system"""

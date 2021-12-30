@@ -315,4 +315,6 @@ def create_app(db_uri):
     #     app.run()
 
 app = create_app(DATABASE_URL)
-app.run()
+
+if __name__ == '__main__':
+    app.run()
