@@ -7,9 +7,9 @@ Pre-requisite: create a database named "meteor_test" in local Postges server
 '''
 
 import os
-from app import create_app
-from models import db, reset_db, FoodItem, Menu
-from env_vars import POSTGRES_USER, POSTGRES_PASS
+from src.app import create_app
+from src.models import db, reset_db, FoodItem, Menu
+from src.env_vars import POSTGRES_USER, POSTGRES_PASS
 
 def insert_menus():
     count = 5

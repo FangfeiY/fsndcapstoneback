@@ -11,9 +11,9 @@ from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 from sqlalchemy import exc
 
-from models import setup_db, FoodItem, Menu
-from auth import AuthError, requires_auth
-from env_vars import DATABASE_URL
+from src.models import setup_db, FoodItem, Menu
+from src.auth import AuthError, requires_auth
+from src.env_vars import DATABASE_URL
 
 def set_endpoints(app):
     @app.after_request

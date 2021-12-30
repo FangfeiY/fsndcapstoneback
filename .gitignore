@@ -1,4 +1,5 @@
 __pycache__
 env
-env_config.bat
+linuxEnv
+env_config.*
 auth0_token_request.txt

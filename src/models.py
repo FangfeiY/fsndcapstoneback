@@ -5,7 +5,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-from env_vars import DATABASE_URL
+from src.env_vars import DATABASE_URL
 
 app = Flask("app")
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
