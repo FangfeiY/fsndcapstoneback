@@ -306,15 +306,14 @@ def create_app(db_uri):
 
     return app
 
-# if __name__ == '__main__':
-    # if(len(sys.argv) < 2):
-    #     print("Please provide database name as 1st argument to this script.")
-    # else:
-    #     db_name = sys.argv[1]
-    #     app = create_app(db_name)
-    #     app.run()
+
 
 app = create_app(DATABASE_URL)
 
 if __name__ == '__main__':
-    app.run()
+    if(len(sys.argv) < 2):
+        app.run()
+    else:
+        db_name = sys.argv[1]
+        app = create_app(db_name)
+        app.run()

@@ -3,11 +3,10 @@ from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+from src.env_vars import AUTH0_DOMAIN, AUTH0_API_AUDIENCE
 
 
-AUTH0_DOMAIN = 'calaveras.us.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'meteor'
+AUTH0_ALGORITHMS = ['RS256']
 
 class AuthError(Exception):
     def __init__(self, error, status_code):
@@ -79,12 +78,13 @@ def verify_decode_jwt(token):
             }
     
     if rsa_key:
+        print(rsa_key)
         try:
             payload = jwt.decode(
                 token,
                 rsa_key,
-                algorithms=ALGORITHMS,
-                audience=API_AUDIENCE,
+                algorithms=AUTH0_ALGORITHMS,
+                audience=AUTH0_API_AUDIENCE,
                 issuer='https://' + AUTH0_DOMAIN + '/'
             )
 
