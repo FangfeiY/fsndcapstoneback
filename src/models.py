@@ -7,12 +7,13 @@ from flask_migrate import Migrate
 
 from src.env_vars import DATABASE_URL
 
-app = Flask("app")
-app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# app = Flask("app")
+# app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+# app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+# db = SQLAlchemy(app)
+# migrate = Migrate(app, db)
 
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
+db = SQLAlchemy()
 
 def setup_db(app):
     db.app = app

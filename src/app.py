@@ -306,8 +306,6 @@ def create_app(db_uri):
 
     return app
 
-
-
 app = create_app(DATABASE_URL)
 
 if __name__ == '__main__':
