@@ -48,7 +48,7 @@ def set_test_data():
         raise
 
 if __name__ == '__main__':
-    db_uri = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASS}@localhost:5432/meteor_test"
+    db_uri = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASS}@localhost:5432/meteor"
 
     meteor_app = create_app(db_uri)
 

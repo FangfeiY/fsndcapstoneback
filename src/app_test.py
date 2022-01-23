@@ -27,7 +27,7 @@ class MeteorRestaurantTestCase(unittest.TestCase):
     def setUp(self):
         """Define test variables and initialize app."""
 
-        self.database_name = "meteor_test"
+        self.database_name = "meteor"
         self.database_path = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASS}@localhost:5432/{self.database_name}"
 
         self.app = create_app(self.database_path)
