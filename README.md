@@ -1,10 +1,20 @@
 # The Meteor Restaurant App API Backend
 
 ## App Overview
-TODO
+Welcome to the API backend of the e-menu app for the imaginary Meteor restaurant! 
+
+The app is desigened serve types of audiences: restaurant manager and staff. Operations they are allowed to do are described below.
 
 ## Live Demo
 The API backend is hosted using Heroku at https://themeteor.herokuapp.com/
+
+## Database Design
+There are two entities in the app - Menu and Food Item. They are in one-to-many relation. One menu can contain many food items, and one food item can only belong to one menu. 
+
+- Example of menu: {"id": 1, "name": "Breakfest Menu", "description": "Wake up your morning with a great test", "food_items": [1]}
+- Example of food item: {"id": 1, "menu_id": 1, "name": "Avocado toast", "description": "Avo, Ancient Grain Toast, Black Pepper, Beacon", "price": 6.0, "is_vege": False, "category": "Flatbread"}
+
+![image](readmeContent/Entities.png)
 
 ## RBAC
 The API endpoint implements RBAC. There are two roles provisioned for this app: General Manager and Staff. Below lists their permissions to the endpoints and operations.
