@@ -3,7 +3,7 @@ from flask import request, _request_ctx_stack, abort
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
-from src.env_vars import AUTH0_DOMAIN, AUTH0_API_AUDIENCE
+from src.env_vars import AUTH0_DOMAIN, AUTH0_API_AUDIENCE, METEOR_TESTING
 
 
 AUTH0_ALGORITHMS = ['RS256']
@@ -115,9 +115,10 @@ def requires_auth(required_permission=''):
     def requires_auth_decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
-            token = get_token_auth_header()
-            payload = verify_decode_jwt(token)
-            check_permissions(required_permission, payload)
+            if not METEOR_TESTING:
+                token = get_token_auth_header()
+                payload = verify_decode_jwt(token)
+                check_permissions(required_permission, payload)
             return f(*args, **kwargs)
 
         return wrapper
