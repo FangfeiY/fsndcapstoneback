@@ -7,9 +7,11 @@ Pre-requisite: create a database named "meteor_test" in local Postges server
 '''
 
 import os
+import sys
+
 from src.app import create_app
 from src.models import db, reset_db, FoodItem, Menu
-from src.env_vars import POSTGRES_USER, POSTGRES_PASS
+from src.env_vars import DATABASE_URL, DATABASE_URL_HEROKU
 
 def insert_menus():
     count = 5
@@ -43,18 +45,27 @@ def set_test_data():
     try:
         insert_menus()
         insert_fooditems()
+
+        print("Finished inserting data.")
     except:
         db.session.rollback()
         raise
 
 if __name__ == '__main__':
-    db_uri = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASS}@localhost:5432/meteor"
+    if len(sys.argv) < 2:
+        print("Please specify database URI variable.")
+    else:
+        if sys.argv[1] == "heroku":
+            db_uri = DATABASE_URL_HEROKU
+            print("Inserting data to Heroku Postgres database.")
+        else:
+            # Local
+            db_uri = DATABASE_URL
+            print("Inserting data to local Postgres database.")
 
-    meteor_app = create_app(db_uri)
+        meteor_app = create_app(db_uri)
 
-    reset_db()
+        set_test_data()
 
-    set_test_data()
-    
-    meteor_app.run()
+
     

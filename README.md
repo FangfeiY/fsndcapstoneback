@@ -82,9 +82,9 @@ Postman test can be used for:
 - Testing RBAC with local app server and database.
 
 <!-- To finish -->
-There is a pre-configured Postman test file located at ./postmantest in this project. Import this file to a Postman workspace and run each collection.
+A pre-configured Postman collection, Meteor API, is located at ./postmantest in this project. Import this collection to a Postman workspace and run each folder.
 
-To switch between production app and local test app, modify the {{host}} variable in the Postman file:
+To switch between production app and local test app, modify the {{host}} variable of the Meteor API collection:
 - To veirify production app, set {{host}} = https://themeteor.herokuapp.com/.
 - To test locally, set {{host}} = http://127.0.0.1.
 
@@ -95,7 +95,7 @@ python3 postman_test.py
 ```
 
 ## API Doc
-See the file ./api_doc.md for details.
+See the documentation in the Postman collection: Meteor API collection -> three dots button -> View documentation.
 
 
 
