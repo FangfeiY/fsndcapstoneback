@@ -14,7 +14,7 @@ There are two entities in the app - Menu and Food Item. They are in one-to-many 
 - Example of menu: {"id": 1, "name": "Breakfest Menu", "description": "Wake up your morning with a great test", "food_items": [1]}
 - Example of food item: {"id": 1, "menu_id": 1, "name": "Avocado toast", "description": "Avo, Ancient Grain Toast, Black Pepper, Beacon", "price": 6.0, "is_vege": False, "category": "Flatbread"}
 
-![image](readmeContent/Entities.png)
+![image](https://github.com/FangfeiY/fsndcapstoneback/blob/master/readmeContent/Entities.PNG)
 
 ## RBAC
 The API endpoint implements RBAC. There are two roles provisioned for this app: General Manager and Staff. Below lists their permissions to the endpoints and operations.
