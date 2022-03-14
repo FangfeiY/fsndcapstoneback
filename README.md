@@ -42,8 +42,8 @@ https://calaveras.us.auth0.com/authorize?audience=meteor&response_type=token&cli
 ```
 
 But since this is a course demo project, to allow reviewers to easilily test teh API, I've pre-configured two users for testing, once for each role. Below lists their tokens:
-- General manager: <!-- insert token -->
-- Staff: <!-- insert token -->
+- General manager: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjFvaGp1NDZLSGdjakR4eE9IdW9YdSJ9.eyJpc3MiOiJodHRwczovL2NhbGF2ZXJhcy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBhNDgwNzQ1ZjA5MWQwMDY5OTUwYzk0IiwiYXVkIjoibWV0ZW9yIiwiaWF0IjoxNjQ3MjI3NzQ1LCJleHAiOjE2NDczMTM3NDUsImF6cCI6ImRuU1F0WmMxbW44czNuOWxBNkQzanBNanNsMHM2cHpUIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6Zm9vZGl0ZW1zIiwiZGVsZXRlOm1lbnVzIiwiZ2V0OmZvb2RpdGVtcyIsImdldDptZW51cyIsInBhdGNoOmZvb2RpdGVtcyIsInBhdGNoOm1lbnVzIiwicG9zdDpmb29kaXRlbXMiLCJwb3N0Om1lbnVzIl19.SfqnkFB3V84YZzy-EDGc21i-h0H6olwrtGFcCQIGvUbzgGpFl1H4dPZVxVfg1uUhUCQuT6Wwc-RM_HSa2Mt37Zrgcclp8NZHbtTNUOqZYXdLIqgZ7qOACg5F9nJY9NQbk5rs_azjBnpZWGwPRbwPd7Fqaw2ez_jjK3rlX6cHFxMWIVy2rBmsbQj9-aIjUcUx7yU5Dp0Tq0uCz7GiRpdKF2Ln-7oiO6TIYurupEA05WdsafMwls3vdn1oci8ziC5-Y6OzLWDRfmVo71ll2D9tyJAIedUV8e8hMyf1fKdFca3XHxB2MSnD2wawPMg1PDIE2Q44FgkMtY6slvG0PMJH0A
+- Staff: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjFvaGp1NDZLSGdjakR4eE9IdW9YdSJ9.eyJpc3MiOiJodHRwczovL2NhbGF2ZXJhcy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDJiOWI3YWU5YTYwMDY5ZjIxYmJmIiwiYXVkIjoibWV0ZW9yIiwiaWF0IjoxNjQ3MjI4MDk0LCJleHAiOjE2NDczMTQwOTQsImF6cCI6ImRuU1F0WmMxbW44czNuOWxBNkQzanBNanNsMHM2cHpUIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Zm9vZGl0ZW1zIiwiZ2V0Om1lbnVzIiwicGF0Y2g6Zm9vZGl0ZW1zIl19.LLMaE2BOCQE1DPfIL2pE2UONZH2whXcewo-0zfwXWUUoWlFNSh4HlFMspWlU2bLGCxJeJ0_21c1SalpnQAhH651XbZ-7zMokEcJribbMmPZwVOBsfdYLoce5e_wgE2TkQ12hx9K9Ym7TaB7tYVYqjeJ0PG-SCPULSThRW0IXRMhnCPitEYzkmMfgukrzqaIjUkLPJ80B2tfrfNkrc7W0aTTkQR0c1JODkM1G_lO6ZRqXXksjwE7GIYtsU56eFMhfrZ1z3BSZwF1WoT5HxCxQ4KbgSLj3yChuvnnWi2ufJlU-69d2rdR7tLr2boAeJzODf0GDSmczOwUmzpH0MpTRzA
 
 ## Local Setup
 ### Set Up Environment Vars
@@ -91,8 +91,7 @@ Postman test can be used for:
 - Verifying the API endpoints at https://themeteor.herokuapp.com/ are working.
 - Testing RBAC with local app server and database.
 
-<!-- To finish -->
-A pre-configured Postman collection, Meteor API, is located at ./postmantest in this project. Import this collection to a Postman workspace and run each folder.
+A pre-configured Postman collection, Meteor API, is located at ./postmantest in this project. Import this collection to a Postman workspace and run each folder. Restaurant manager and staff tokens are stored in collection's variables.
 
 To switch between production app and local test app, modify the {{host}} variable of the Meteor API collection:
 - To veirify production app, set {{host}} = https://themeteor.herokuapp.com/.

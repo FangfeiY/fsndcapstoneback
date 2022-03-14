@@ -1,0 +1,927 @@
+{
+	"info": {
+		"_postman_id": "7c625d5c-fe35-452c-9851-c36b0cbc1579",
+		"name": "Meteor API",
+		"description": "The API doc for the Meteor Restaurant app backend - for the Udacity FSND course capstone project.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "manager",
+			"item": [
+				{
+					"name": "get_fooditem_by_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/food_items/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items",
+								"1"
+							]
+						},
+						"description": "Get a food item by its ID."
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_fooditems",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains food items array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.food_items).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/food_items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items"
+							]
+						},
+						"description": "Get all food items in from the fooditems table in database."
+					},
+					"response": []
+				},
+				{
+					"name": "get_fooditems_by_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains food items array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.food_items).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus/1/food_items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"1",
+								"food_items"
+							]
+						},
+						"description": "Get the food items of the specified menu - specified by menu ID."
+					},
+					"response": []
+				},
+				{
+					"name": "create_fooditems",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"menu_id\": 1,\r\n    \"name\": \"Egg Benedict\",\r\n    \"description\": \"Creamy and crispy.\",\r\n    \"price\": 15.0,\r\n    \"is_vege\": false,\r\n    \"category\": \"Starter\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/food_items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items"
+							]
+						},
+						"description": "Add a new food item to the fooditems table in database."
+					},
+					"response": []
+				},
+				{
+					"name": "update_fooditem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"menu_id\": 3,\r\n    \"price\": 100,\r\n    \"is_vege\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/food_items/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items",
+								"1"
+							]
+						},
+						"description": "Update an eligible attribute of the food item specified by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "delete_fooditem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/food_items/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items",
+								"2"
+							]
+						},
+						"description": "Delete the food item specified by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_menus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains menus array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.menus).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus"
+							]
+						},
+						"description": "Get all menus from the menus table in database."
+					},
+					"response": []
+				},
+				{
+					"name": "get_menu_by_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"1"
+							]
+						},
+						"description": "Get a menu from the menus table by the specified ID."
+					},
+					"response": []
+				},
+				{
+					"name": "create_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lunch Menu\",\r\n    \"description\": \"It's time for a luch break!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/menus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus"
+							]
+						},
+						"description": "Add a new menu to the menus table in database."
+					},
+					"response": []
+				},
+				{
+					"name": "update_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Updated menu name\",\r\n    \"description\": \"Menu updated!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/menus/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"2"
+							]
+						},
+						"description": "Update an eligible attribute of the menu specified by ID."
+					},
+					"response": []
+				},
+				{
+					"name": "delete_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"1"
+							]
+						},
+						"description": "Delete the menu specified by ID from the menus table in database."
+					},
+					"response": []
+				}
+			],
+			"description": "Restaurant managers are allowed to perform all menu and food item operations.\n\n*   Menu: view, update, delete.\n*   Food item: view, update, delete.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{manager_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "staff",
+			"item": [
+				{
+					"name": "get_fooditem_by_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/food_items/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_fooditems",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains food items array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.food_items).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/food_items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_fooditems_by_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains food items array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.food_items).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus/1/food_items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"1",
+								"food_items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_fooditems",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"menu_id\": 1,\r\n    \"name\": \"Egg Benedict\",\r\n    \"description\": \"Creamy and crispy.\",\r\n    \"price\": 15.0,\r\n    \"is_vege\": false,\r\n    \"category\": \"Starter\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/food_items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items"
+							]
+						},
+						"description": "Restaurant staff isn't allowed to add food items."
+					},
+					"response": []
+				},
+				{
+					"name": "update_fooditem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"menu_id\": 3,\r\n    \"price\": 100,\r\n    \"is_vege\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/food_items/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_fooditem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/food_items/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"food_items",
+								"2"
+							]
+						},
+						"description": "Restaurant staff isn't allowed to delete a food item."
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_menus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"value contains menus array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.menus).to.be.an('array')\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_menu_by_id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lunch Menu\",\r\n    \"description\": \"It's time for a luch break!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/menus",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus"
+							]
+						},
+						"description": "Restaurant staff isn't allowed to add a menu."
+					},
+					"response": []
+				},
+				{
+					"name": "update_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Updated menu name\",\r\n    \"description\": \"Menu updated!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/menus/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"2"
+							]
+						},
+						"description": "Restaurant staff isn't allowed to update a menu."
+					},
+					"response": []
+				},
+				{
+					"name": "delete_menu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/menus/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"menus",
+								"1"
+							]
+						},
+						"description": "Restaurant staff isn't allowed to delete a menu."
+					},
+					"response": []
+				}
+			],
+			"description": "Restaurant staff is only allowed to perform the below menu and food item operations, including:\n\n*   Menu: view.\n*   Food item: view, update.\n    \n\nThe endpoints below are the same as those of restaurant managers.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{staff_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "manager_token",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjFvaGp1NDZLSGdjakR4eE9IdW9YdSJ9.eyJpc3MiOiJodHRwczovL2NhbGF2ZXJhcy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBhNDgwNzQ1ZjA5MWQwMDY5OTUwYzk0IiwiYXVkIjpbIm1ldGVvciIsImh0dHBzOi8vY2FsYXZlcmFzLnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2NDA0MDgzODUsImV4cCI6MTY0MDQ5NDM4NSwiYXpwIjoiZG5TUXRaYzFtbjhzM245bEE2RDNqcE1qc2wwczZwelQiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpmb29kaXRlbXMiLCJkZWxldGU6bWVudXMiLCJnZXQ6Zm9vZGl0ZW1zIiwiZ2V0Om1lbnVzIiwicGF0Y2g6Zm9vZGl0ZW1zIiwicGF0Y2g6bWVudXMiLCJwb3N0OmZvb2RpdGVtcyIsInBvc3Q6bWVudXMiXX0.wuOOnYnpt0ne_CNw15hsyW2JPHWJynCNrxdmW4hh7GUe7Pi1OoNsUQYXfzzbHRegvvfIVaGcbz3j7KoPcePDpDP7m-Ma53J8hAax-RiFiMEvXg0PHHtCdT2bxpjgyWBteX4uHLpcKefuF8PpdtCQhkZ9y-jFUONZUrCaolGZkFATKb3RlNfYwFtXdUo4kwXv2OW2FcCuQKFu5swAYG3IOd2rhDRVhd36qPzK8yJ-_EXT8r97S0SxG4XYjvnj23UXTX4M4LYXBMg-rrHdBBo362GTNNN364N_RpHG1yWLv1FQBNQ4DQ9hJyC9JF1I0HNWpMaZ6AS5eL0r43W5yryrrw",
+			"type": "string"
+		},
+		{
+			"key": "staff_token",
+			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjFvaGp1NDZLSGdjakR4eE9IdW9YdSJ9.eyJpc3MiOiJodHRwczovL2NhbGF2ZXJhcy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBkZDJiOWI3YWU5YTYwMDY5ZjIxYmJmIiwiYXVkIjoibWV0ZW9yIiwiaWF0IjoxNjQwNDA5NzQwLCJleHAiOjE2NDA0OTU3NDAsImF6cCI6ImRuU1F0WmMxbW44czNuOWxBNkQzanBNanNsMHM2cHpUIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6Zm9vZGl0ZW1zIiwiZ2V0Om1lbnVzIiwicGF0Y2g6Zm9vZGl0ZW1zIl19.WeRmLVLZLajy0J5YORvfsj9csllg0lr5vJxZqwEMqPasdVqb7yOqsQ_OHeGq7I2TaBwferaPOBgUJyH6aBj-JAushGxl5H6vY-pjVFHWXK2rPk0JJIAnA6d6g4Lt9zqAaSk3D8c42D01DlB3xyy7cKLvB9E751Dhrx7qqmyS5jCtjsERnexrmAd4_8y5wd5Knsnuh6wR8nOlgGmicAGmHVKJe8V_hz-tuamcHOQHI6rxzbkrglEDvgJ6-FD-f7L2g9sXe1wLn8yrtjfzkqdjvTKNLdWP0YxD2FMSzCbucfO_GcxtWIVTG7U8r3IcsmAUksGBySc28Rho5UKSen1Jng",
+			"type": "string"
+		},
+		{
+			"key": "host",
+			"value": "https://themeteor.herokuapp.com",
+			"type": "string"
+		}
+	]
+}
